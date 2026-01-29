@@ -1,0 +1,73 @@
+:root{
+  --bg:#f6f5f4;
+  --accent:#c41f57;
+  --muted:#9b9b9b;
+  --card:#ffffff;
+  --chip:#f0e7ec;
+}
+
+*{box-sizing:border-box;font-family:Inter, Arial, sans-serif}
+body,html,#root{height:100%;margin:0;background:var(--bg);}
+
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:220px;background:#fff;border-right:1px solid #eee;padding:20px;display:flex;flex-direction:column;
+}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.logo{width:40px;height:40px;border-radius:10px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center}
+.title{font-weight:700;font-size:18px}
+
+.sidebar nav{display:flex;flex-direction:column;gap:10px}
+.nav-item{padding:10px;border-radius:10px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.nav-item.active{background:linear-gradient(90deg,#f3e6ec,#fff);color:var(--accent);font-weight:600}
+.badge{background:#c41f57;color:#fff;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+
+.main{flex:1;display:flex;flex-direction:column}
+.header{height:72px;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:transparent}
+.search input{padding:10px 12px;border-radius:20px;border:1px solid #e6e6e6;width:420px}
+.header-right{display:flex;align-items:center;gap:16px}
+.user{display:flex;align-items:center;gap:8px}
+.avatar{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;border:1px solid #eee}
+
+.content{display:flex;gap:20px;padding:20px}
+.left{flex:1}
+.right{width:360px}
+
+.order-line h2{margin:0 0 10px 0}
+.chips{display:flex;gap:10px;margin-bottom:12px}
+.chip{background:var(--chip);border:none;padding:8px 12px;border-radius:999px}
+.chip .count{background:#fff;padding:2px 6px;border-radius:999px;margin-left:8px;font-weight:600}
+
+.orders{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.order-card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);width:220px;position:relative}
+.order-top{display:flex;justify-content:space-between;margin-bottom:8px}
+.order-body{font-weight:600}
+.status{position:absolute;right:12px;bottom:12px;padding:6px 10px;border-radius:20px;font-size:12px}
+.status.wait-list{background:#ffecec;color:#c94a4a}
+.status.in-kitchen{background:#fff0c9;color:#a67c00}
+.status.ready{background:#e8f8f0;color:#2a8a5f}
+
+.menu-grid h3{margin-top:0}
+.menu-filters{display:flex;gap:8px;margin:12px 0}
+.tag{background:#eee;border-radius:20px;padding:6px 12px;border:none;cursor:pointer}
+.tag.active{background:var(--accent);color:#fff;padding:6px 12px;border-radius:20px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.menu-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.image-placeholder{height:90px;background:#e9e9e9;display:flex;align-items:center;justify-content:center}
+.menu-body{padding:10px}
+.menu-title{font-weight:700}
+.menu-cat{font-size:12px;color:var(--muted);margin-bottom:8px}
+.menu-bottom{display:flex;justify-content:space-between;align-items:center}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:28px;height:28px;border-radius:50%;border:1px solid #e6e6e6;background:#fff;cursor:pointer}
+
+.order-panel{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 1px 8px rgba(0,0,0,0.05)}
+.panel-header{display:flex;justify-content:space-between;align-items:center}
+.ordered-items{margin-top:12px}
+.ordered-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed #eee}
+.pill{background:#fff0d9;padding:6px 8px;border-radius:8px;margin-right:8px}
+.payment-summary{margin-top:12px}
+.payment-summary .row{display:flex;justify-content:space-between;padding:6px 0}
+.total{border-top:1px dashed #eee;padding-top:8px;margin-top:8px}
+.place-order{width:100%;margin-top:12px;padding:12px;border-radius:999px;background:var(--accent);color:#fff;border:none;font-weight:700;cursor:pointer}
