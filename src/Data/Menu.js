@@ -7,6 +7,7 @@ const sampleMenu = [
   { id: 6, title: "Chicken Skewers", category: "Main Course", price: 15.0 },
   { id: 7, title: "Chocolate Pancake", category: "Dessert", price: 8.0 },
   { id: 8, title: "Matcha Latte", category: "Drink", price: 6.0 },
+  { id: 8, title: "Matcha Latte", category: "Drink", price: 6.0 },
 ];
 
 export default sampleMenu;

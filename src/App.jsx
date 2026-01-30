@@ -12,7 +12,7 @@ export default function App() {
   const [orders, setOrders] = useState(() => {
     const saved = localStorage.getItem("bistro_orders");
     return saved ? JSON.parse(saved) : [
-      { id: "NOB25", table: "Table 04", itemsCount: 8, status: "Wait List", time: "Just Now", items: [] },
+      { id: "NOB25", table: "Table 04", itemsCount: 8, status: "Wait List", time: "30 min ago", items: [] },
       { id: "NOB24", table: "Table 03", itemsCount: 8, status: "In Kitchen", time: "2 min ago", items: [] },
       { id: "NOB23", table: "Table 02", itemsCount: 8, status: "Ready", time: "20 min ago", items: [] },
     ];
