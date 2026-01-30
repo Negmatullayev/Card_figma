@@ -1,8 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 
 export default function OrderPanel({ menu = [], cart = {}, onAdd, onRemove, onPlaceOrder }) {
-  const [paymentMethod, setPaymentMethod] = useState("Card");
-
   const cartItems = useMemo(() => {
     return Object.entries(cart).map(([id, qty]) => {
       const m = menu.find((x) => String(x.id) === String(id));
@@ -22,23 +20,16 @@ export default function OrderPanel({ menu = [], cart = {}, onAdd, onRemove, onPl
 
   return (
     <aside className="order-panel">
-      <div className="panel-header">
-        <h4>Table No #05</h4>
-        <div className="icons">✏️ 🗑️ 🖨️</div>
-      </div>
-
       <div className="ordered-items">
         <h5>Ordered Items</h5>
         {cartItems.length === 0 && <div style={{ color: "#888" }}>Savat bo'sh</div>}
         {cartItems.map((o) => (
           <div key={o.id} className="ordered-row">
-            <div className="left" style={{ display: "flex", alignItems: "center" }}>
+            <div className="left">
               <span className="pill">x{o.qty}</span>
-              <div style={{ marginRight: 8 }}>{o.name}</div>
-              <div style={{ display: "flex", gap: 6 }}>
-                <button onClick={() => onRemove && onRemove(o.id)}>-</button>
-                <button onClick={() => onAdd && onAdd(o.id)}>+</button>
-              </div>
+              <span>{o.name}</span>
+              <button onClick={() => onRemove && onRemove(o.id)}>-</button>
+              <button onClick={() => onAdd && onAdd(o.id)}>+</button>
             </div>
             <div className="price">${(o.price * o.qty).toFixed(2)}</div>
           </div>
@@ -53,18 +44,9 @@ export default function OrderPanel({ menu = [], cart = {}, onAdd, onRemove, onPl
         <div className="row total"><span>Total</span><strong>${total.toFixed(2)}</strong></div>
       </div>
 
-      <div style={{ marginTop: 12 }}>
-        <div style={{ marginBottom: 8 }}>Payment Method</div>
-        <div style={{ display: "flex", gap: 8 }}>
-          <button className={paymentMethod === "Cash" ? "tag active" : "tag"} onClick={() => setPaymentMethod("Cash")}>Cash</button>
-          <button className={paymentMethod === "Card" ? "tag active" : "tag"} onClick={() => setPaymentMethod("Card")}>Card</button>
-          <button className={paymentMethod === "Scan" ? "tag active" : "tag"} onClick={() => setPaymentMethod("Scan")}>Scan</button>
-        </div>
-      </div>
-
       <button
         className="place-order"
-        onClick={() => onPlaceOrder && onPlaceOrder({ table: "Table 05", paymentMethod })}
+        onClick={() => onPlaceOrder && onPlaceOrder({ table: "Table 05", paymentMethod: "Card" })}
       >
         Place Order
       </button>
